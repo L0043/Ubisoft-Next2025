@@ -1,0 +1,50 @@
+﻿  stdafx.cpp
+C:\Users\jam3s\OneDrive\Desktop\API\GameTest\stdafx.h(21,9): warning C4005: 'PI': macro redefinition
+  (compiling source file 'stdafx.cpp')
+      C:\Users\jam3s\OneDrive\Desktop\API\GameTest\App\AppSettings.h(64,9):
+      see previous definition of 'PI'
+  
+  AABB.cpp
+  app.cpp
+  main.cpp
+  SimpleController.cpp
+  SimpleSound.cpp
+  SimpleSprite.cpp
+C:\Users\jam3s\OneDrive\Desktop\API\GameTest\App\SimpleSprite.cpp(100,29): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  (compiling source file '/App/SimpleSprite.cpp')
+  
+  Ball.cpp
+  EventManager.cpp
+  GameTest.cpp
+  Goal.cpp
+  Level.cpp
+C:\Users\jam3s\OneDrive\Desktop\API\GameTest\Level.cpp(45,11): warning C4101: 'penetrationDepth': unreferenced local variable
+  (compiling source file '/Level.cpp')
+  
+  Map.cpp
+  Mesh.cpp
+C:\Users\jam3s\OneDrive\Desktop\API\GameTest\Mesh.cpp(19,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file '/Mesh.cpp')
+  
+C:\Users\jam3s\OneDrive\Desktop\API\GameTest\Mesh.cpp(64,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/Mesh.cpp')
+  
+C:\Users\jam3s\OneDrive\Desktop\API\GameTest\Mesh.cpp(65,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/Mesh.cpp')
+  
+C:\Users\jam3s\OneDrive\Desktop\API\GameTest\Mesh.cpp(65,53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/Mesh.cpp')
+  
+C:\Users\jam3s\OneDrive\Desktop\API\GameTest\Mesh.cpp(86,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file '/Mesh.cpp')
+  
+  miniaudio.cpp
+  Object.cpp
+  Player.cpp
+  SoundWave.cpp
+  stb_image.cpp
+  Wall.cpp
+  Generating Code...
+  GameTest.vcxproj -> C:\Users\jam3s\OneDrive\Desktop\API\x64\Debug\GameTest.exe
+  C:\Users\jam3s\OneDrive\Desktop\API\\GameTest\glut\bin\x64\freeglut.dll
+  1 File(s) copied
