@@ -5,7 +5,7 @@
 namespace Echo
 {
 	Level::Level(Map* map, EventManager& manager) :
-		m_Geometry(map->GetGeometry()),
+		//m_Geometry(map->GetGeometry()),
 		m_CurrentMap(map),
 		m_Manager(manager)
     {
@@ -16,40 +16,53 @@ namespace Echo
     }
     void Level::Update(float deltaTime)
     {
-        for(Object* obj : m_Geometry)
+		auto geometry = m_CurrentMap->GetGeometry();
+        for(auto it = geometry.begin(); it != geometry.end();)
         {
+			Object* obj = *it;
             obj->Update(deltaTime);
+			it++;
         }
     }
     void Level::Draw()
     {
-        for (Object* obj : m_Geometry)
-            obj->Draw();
+		auto geometry = m_CurrentMap->GetGeometry();
+		for (auto it = geometry.begin(); it != geometry.end();)
+		{
+			Object* obj = *it;
+			obj->Draw();
+			it++;
+		}
     }
 	void Level::DetectCollisions()
 	{
+		auto geometry = m_CurrentMap->GetGeometry();
 		// my physics math could/should probably be put into a physics world class, however to save me some time I will write them here
-		for (Echo::Object* obj : m_Geometry)
+		for (int x = 0; x < geometry.size(); x++)
 		{
-			for (int i = 0; i < m_Geometry.size(); i++)
+			for (int y = 0; y < geometry.size(); y++)
 			{
 				// prevent the object from colliding with itself
-				if (m_Geometry[i] == obj)
+				if (geometry[x] == geometry[y])
 					continue;
-				Echo::AABB& objAABB = obj->GetAABB();
-				Echo::AABB& otherAABB = m_Geometry[i]->GetAABB();
+				Echo::AABB& objAABB = geometry[x]->GetAABB();
+				Echo::AABB& otherAABB = geometry[y]->GetAABB();
 				// send to both objects who hit it, this could be changed to be a manifold containing all data relating to collisions,
 				// ie: normals and the objects involved
 				// Determine the smallest overlap
 				Vector2 normal;
 				float penetrationDepth;
-				Vector2& pos = obj->GetPosition();
+				Vector2& pos = geometry[x]->GetPosition();
+
+				if ((geometry[x]->GetLayerMask() & geometry[y]->GetLayer()) != geometry[y]->GetLayer())
+					continue;
+
 				if (!objAABB.Overlaps(otherAABB))
 					continue;
 
 
 				auto result = objAABB.GetCollisionNormal(otherAABB);
-				CollisionEvent* collision = new CollisionEvent(obj, m_Geometry[i], result.first, result.second);
+				CollisionEvent* collision = new CollisionEvent(geometry[x], geometry[y], result.first, result.second);
 				m_Manager.AddEvent(collision);
 				//obj->OnCollision(m_Geometry[i], normal);
 				//m_Geometry[i]->OnCollision(obj, normal);
@@ -67,7 +80,7 @@ namespace Echo
 	}
 	void Level::LoadMap(Map* newMap)
 	{
-		m_Geometry = newMap->GetGeometry();
+		//m_Geometry = newMap->GetGeometry();
 		m_CurrentMap = newMap;
 	}
 	void Level::RecieveEvent(Event* pEvent)

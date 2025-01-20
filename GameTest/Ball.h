@@ -9,7 +9,7 @@ namespace Echo
     class Ball : public Object
 	{
 	public:
-		Ball(Vector2 position, float radius, int segments, Level* m_Level, MeshType type = MeshType::Circle, ObjectType objType = ObjectType::ball );
+		Ball(Vector2 position, float radius, int segments, Level* m_Level, MeshType type = MeshType::Circle, ObjectType objType = ObjectType::GolfBall );
 		~Ball();
         virtual void Update(float deltaTime) override;
         virtual void Draw() override;

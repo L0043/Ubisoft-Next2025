@@ -6,11 +6,12 @@ namespace Echo
 {
     struct CollisionData;
     class Level;
-    enum ObjectType
+    enum ObjectType : uint32_t
     {
-        ball = 1 << 0,
-        terrain = 1 << 1,
-        interactible = 1 << 2
+        GolfBall        = 1 << 0,
+        Terrain         = 1 << 1,
+        Interactible    = 1 << 2,
+        Metaphysical    = 1 << 3
     };
 
 	class Object
@@ -29,7 +30,8 @@ namespace Echo
         void SetColour(Vector4 colour) { m_Colour = colour; };
         void SetMesh(Mesh mesh) { m_Mesh = mesh; };
         void SetStatic(bool stat) { isStatic = stat; }
-        void SetType(ObjectType type) { m_Type = type; }
+        void SetLayerMask(uint32_t type) { m_LayerMask = type; }
+        void SetLayer(ObjectType type) { m_Layer = type; }
         Vector2 GetPosition() const { return m_Position; };
         Vector2 GetSize()const { return m_Size; };
         Vector2 GetRotation()const { return m_Rotation; };
@@ -37,14 +39,16 @@ namespace Echo
         AABB GetAABB()const { return m_AABB; };
         Mesh GetMesh()const { return m_Mesh; };
         CSimpleSprite* GetSprite()const { return m_Sprite; };
-        ObjectType GetType() const { return m_Type; }
+        uint32_t GetLayerMask() const { return m_LayerMask; }
+        ObjectType GetLayer() const { return m_Layer; }
         bool IsStatic() const { return isStatic; }
 
         std::string m_Name = "";
 	protected:
         CSimpleSprite* m_Sprite;
         Level* m_Level;
-        ObjectType m_Type;
+        uint32_t m_LayerMask;
+        ObjectType m_Layer;
         AABB m_AABB;
         Mesh m_Mesh;
         Vector2 m_Position;

@@ -11,6 +11,7 @@ namespace Echo
         m_AABB.SetScale({ m_Radius * 2.0f, m_Radius * 2.0f });
         m_AABB.SetColor(m_Colour);
         m_Colour = Vector4(1, 0, 0, 1);
+        m_LayerMask = ~ObjectType::Metaphysical;
         isDebug = true;
         m_Name = "Ball";
         //for(int i = 0; i < m_Segments; i++)
@@ -57,7 +58,7 @@ namespace Echo
         Vector2 reflectedVelocity = m_Velocity - data->m_Normal * (2 * dot);
         m_Velocity = reflectedVelocity * 0.9f;
 
-        if(data->m_ObjB->GetType() == ObjectType::terrain)
+        if(data->m_ObjB->GetLayer() == ObjectType::Terrain)
         {
             m_SoundWaves.push_back(new SoundWave(m_Position, m_Size.x, 100, ".\\TestData\\Error.wav", 20, m_Level));
         }

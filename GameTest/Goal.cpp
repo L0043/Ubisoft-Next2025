@@ -9,6 +9,7 @@ namespace Echo
         isDebug = true;
         isStatic = true;
         m_AABB.SetScale({ m_Size.x * 2.0f, m_Size.x * 2.0f });
+        m_LayerMask = ~ObjectType::Terrain;
     }
 
     Goal::~Goal()
@@ -31,11 +32,11 @@ namespace Echo
     {
         if (isCollisionProcessed)
             return;
-        if(data->m_ObjB->GetType() == ObjectType::ball)
-        {
-            text = true;
-            GoalHit();
-        }
+        //if(data->m_ObjB->GetType() == ObjectType::GolfBall)
+        //{
+        //    text = true;
+        //    GoalHit();
+        //}
         isCollisionProcessed = true;
     }
 

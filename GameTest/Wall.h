@@ -10,14 +10,14 @@ namespace Echo
 	class Wall : public Object
 	{
 	public:
-		Wall(Vector2 position, Vector2 scale, float rotation, Level* m_Level, MeshType type = MeshType::Rect, ObjectType objType = ObjectType::terrain);
+		Wall(Vector2 position, Vector2 scale, float rotation, Level* m_Level, MeshType type = MeshType::Rect, ObjectType objType = ObjectType::Terrain);
 		~Wall();
         virtual void Update(float deltaTime) override;
         virtual void Draw() override;
 		virtual void OnCollision(CollisionData* data) override;
 	private:
-		// 
-        std::vector<Vector2> m_wallPoints;
+		const int m_NumOfDivisionsPerSide = 100;
+        std::vector<Vector2> m_WallDivisions;
 		bool isActive;
 	};
 }

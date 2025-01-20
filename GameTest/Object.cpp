@@ -14,9 +14,10 @@ namespace Echo
         m_Size(size),
         m_Sprite(sprite),
         m_Colour(colour),
-        m_Type(objType),
+        m_Layer(objType),
         m_Level(level)
     {
+        m_LayerMask = ObjectType::GolfBall | ObjectType::Interactible | ObjectType::Terrain| ObjectType::Metaphysical;
         m_Level->GetMap()->AddGeometry(this);
         auto map = m_Level->GetMap();
         int aj = 5;

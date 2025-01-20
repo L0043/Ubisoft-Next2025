@@ -10,8 +10,11 @@ namespace Echo
         m_fileName(filename),
         m_Duration(duration)
     {
+        m_AABB.SetScale({ radius * 2.0f, radius * 2.0f });
+        m_LayerMask = ~ObjectType::GolfBall;
         m_Radius = radius;
         App::PlaySoundW(m_fileName);
+        isDebug = true;
     }
     SoundWave::~SoundWave()
     {
@@ -22,10 +25,11 @@ namespace Echo
         m_Radius += m_Speed * deltaTime;
         m_Mesh.UpdateMesh(m_Radius, m_Size.y);
         m_Timer += deltaTime;
-       
+        m_AABB.SetScale({ m_Radius * 2.0f, m_Radius * 2.0f });
         if(m_Timer >= m_Duration)
         {
-            this->~SoundWave();
+            //this->~SoundWave();
+            //delete this object
         }
 
     }
@@ -35,5 +39,9 @@ namespace Echo
     }
     void SoundWave::OnCollision(CollisionData* data)
     {
+        if(data->m_ObjB->GetLayer() == ObjectType::Terrain)
+        {
+            //m_Radius = 0.0f;
+        }
     }
 }

@@ -200,6 +200,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PowerUp.h" />
+    <ClInclude Include="SegmentedWall.h" />
     <ClInclude Include="SoundWave.h" />
     <ClInclude Include="stb_image\stb_image.h" />
     <ClInclude Include="stdafx.h" />
@@ -225,6 +226,7 @@
     <ClCompile Include="miniaudio\miniaudio.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SegmentedWall.cpp" />
     <ClCompile Include="SoundWave.cpp" />
     <ClCompile Include="stb_image\stb_image.cpp" />
     <ClCompile Include="stdafx.cpp">

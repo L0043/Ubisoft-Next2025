@@ -17,6 +17,7 @@
 #include "Level.h"
 #include "Goal.h"
 #include "Map.h"
+#include "SegmentedWall.h"
 //------------------------------------------------------------------------
 // Example data....
 //------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Echo::AABB* aabb1;
 Echo::Player* pClub;
 Echo::Ball* pBall;
 Echo::Goal* pGoal;
+
 
 void Init()
 {
@@ -62,12 +64,13 @@ void Init()
 	//aabb1 = new Echo::AABB(Vector2(400, 400), 100, 100,0, Vector4(1,1,1,1));
 	pBall = new Echo::Ball(Vector2(150, 150), 15.0f, 20, pLevel);
 	pClub = new Echo::Player(Vector2(0, 0), Vector2(20, 20), 0.0f, pBall);
-	Echo::Wall* border0 = new Echo::Wall({ 40, 400 }, { wallThickness, 700 }, 0, pLevel);	//left
+	//Echo::Wall* border0 = new Echo::Wall({ 40, 400 }, { wallThickness, 700 }, 0, pLevel);	//left
+	Echo::SegmentedWall* border0 = new Echo::SegmentedWall({ 40, 400 }, { wallThickness, 700 }, 100, pLevel);
 	Echo::Wall* border1 = new Echo::Wall({ 500, 40 }, { 900, wallThickness }, 0, pLevel);	//bottom
 	Echo::Wall* border2 = new Echo::Wall({ 500, 760 }, { 900, wallThickness }, 0,pLevel);	//top
 	Echo::Wall* border3 = new Echo::Wall({ 960, 400 }, { wallThickness, 700 }, 0,pLevel);	//left
 
-	pGoal = new Echo::Goal(Echo::MeshType::Circle, Echo::ObjectType::interactible, { 600, 400 }, { 30, 20 }, { 0,1,0,1 }, pLevel,*testSprite);
+	pGoal = new Echo::Goal(Echo::MeshType::Circle, Echo::ObjectType::Interactible, { 600, 400 }, { 30, 20 }, { 0,1,0,1 }, pLevel,*testSprite);
 
 	//pMap1->AddGeometry(pBall);
 	//pMap1->AddGeometry(border0);

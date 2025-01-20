@@ -8,7 +8,7 @@ namespace Echo
 	{
 	public:
 		SoundWave(Vector2 position, float radius, float segments, const char* filename, 
-			float duration, Level* m_Level, MeshType meshType = MeshType::Circle, ObjectType objType = ObjectType::interactible);
+			float duration, Level* m_Level, MeshType meshType = MeshType::Circle, ObjectType objType = ObjectType::Metaphysical);
 		~SoundWave();
 		virtual void Update(float deltaTime) override;
 		virtual void Draw() override;

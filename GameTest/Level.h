@@ -17,7 +17,7 @@ namespace Echo
 		virtual void RecieveEvent(Event* pEvent) override;
 		Map* GetMap() const { return m_CurrentMap; }
 	private:
-		std::vector<Object*>& m_Geometry;
+		//std::vector<Object*> m_Geometry;
 		Map* m_CurrentMap;
 		EventManager& m_Manager;
 	};

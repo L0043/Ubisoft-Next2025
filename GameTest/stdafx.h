@@ -19,4 +19,5 @@
 #include "Events.h"
 
 #define PI 3.14159265359
+#define LayerMax 0xFFFFFFFF
 // TODO: reference additional headers your program requires here
