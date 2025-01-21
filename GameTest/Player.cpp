@@ -5,7 +5,7 @@
 #include "Ball.h"
 namespace Echo
 {
-    Player::Player(Vector2 position, Vector2 size, float rotation, Ball* ball, MeshType type, CSimpleSprite* sprite):
+    Player::Player(Vector2 position, Vector2 size, float rotation, Ball* ball, MeshType type):
         m_Colour({ 1,0,1,1 }),
         m_Position(position),
         m_Size(size),

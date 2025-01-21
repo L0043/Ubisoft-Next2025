@@ -11,8 +11,8 @@ namespace Echo
 	class Player
 	{
 	public:
-		// not sure if im going to have the player be wireframe or sprite yet.
-		Player(Vector2 position, Vector2 size, float rotation, Ball* ball, MeshType type = MeshType::Rect, CSimpleSprite* sprite = nullptr);
+		// not sure if im going to have the player be wireframe or sprite yet. - I decided no to sprites
+		Player(Vector2 position, Vector2 size, float rotation, Ball* ball, MeshType type = MeshType::Rect);
 		~Player();
         void Update(float deltaTime);
         void Draw();
@@ -20,8 +20,6 @@ namespace Echo
 		int GetStrokes() const { return m_Strokes; }
 	private:
 		// base class variables
-		
-		CSimpleSprite* m_Sprite;
 		Mesh m_Mesh;
 		Vector2 m_Position;
 		Vector2 m_Size;
