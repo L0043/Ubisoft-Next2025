@@ -2,6 +2,7 @@
 #include "Level.h"
 #include "Map.h"
 #include "EventManager.h"
+#include <time.h>
 namespace Echo
 {
 	Level::Level(EventManager& manager) :
@@ -51,11 +52,7 @@ namespace Echo
 					continue;
 				Echo::AABB& objAABB = m_Layout[x]->GetAABB();
 				Echo::AABB& otherAABB = m_Layout[y]->GetAABB();
-				// send to both objects who hit it, this could be changed to be a manifold containing all data relating to collisions,
-				// ie: normals and the objects involved
-				// Determine the smallest overlap
-				Vector2 normal;
-				float penetrationDepth;
+
 				Vector2& pos = m_Layout[x]->GetPosition();
 
 				if ((m_Layout[x]->GetLayerMask() & m_Layout[y]->GetLayer()) != m_Layout[y]->GetLayer())
@@ -63,7 +60,6 @@ namespace Echo
 
 				if (!objAABB.Overlaps(otherAABB))
 					continue;
-
 
 				auto result = objAABB.GetCollisionNormal(otherAABB);
 				CollisionEvent* collision = new CollisionEvent(m_Layout[x], m_Layout[y], result.first, result.second);
@@ -124,7 +120,14 @@ namespace Echo
 	}
 	void Level::ChangeMap()
 	{
+		// put this here to ensure that rand is seeded somewhat
+		//srand(time(NULL));
 		int random = rand() % m_Maps.size();
+		do
+		{
+			random = rand() % m_Maps.size();
+		} while (m_Maps[random] == m_CurrentMap);
+
 		switch (random)
 		{
 		case 0:

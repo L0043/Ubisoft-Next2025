@@ -1,7 +1,40 @@
 ﻿  stdafx.cpp
-C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Object.h(32,42): error C2280: 'Echo::Mesh &Echo::Mesh::operator =(const Echo::Mesh &)': attempting to reference a deleted function
-C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Mesh.h(48,2): message : compiler has generated 'Echo::Mesh::operator =' here
-C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Mesh.h(48,2): message : 'Echo::Mesh &Echo::Mesh::operator =(const Echo::Mesh &)': function was implicitly deleted because 'Echo::Mesh' has a data member 'Echo::Mesh::m_Rotation' of reference type
-C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Mesh.h(47,16): message : see declaration of 'Echo::Mesh::m_Rotation'
 C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\stdafx.h(21,1): warning C4005: 'PI': macro redefinition
 C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\App\AppSettings.h(64,1): message : see previous definition of 'PI'
+  AABB.cpp
+  app.cpp
+  main.cpp
+  SimpleController.cpp
+  SimpleSound.cpp
+  SimpleSprite.cpp
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\App\SimpleSprite.cpp(100,29): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Ball.cpp
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Ball.cpp(64,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  EventManager.cpp
+  GameTest.cpp
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\GameTest.cpp(47,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Goal.cpp
+  Level.cpp
+  Map.cpp
+  Mesh.cpp
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Mesh.cpp(20,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Mesh.cpp(55,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Mesh.cpp(56,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Mesh.cpp(56,53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Mesh.cpp(62,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Mesh.cpp(96,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  miniaudio.cpp
+  Object.cpp
+  Player.cpp
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Player.cpp(30,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  SegmentedWall.cpp
+  SoundWave.cpp
+  stb_image.cpp
+  Wall.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 2674 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  GameTest.vcxproj -> C:\Users\lill0043\Downloads\UbiNextEcho\x64\Release\GameTest.exe
+  C:\Users\lill0043\Downloads\UbiNextEcho\\GameTest\glut\bin\x64\freeglut.dll
+  1 File(s) copied

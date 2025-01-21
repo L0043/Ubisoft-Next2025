@@ -161,9 +161,9 @@ void Init()
 #pragma endregion
 
 
-	//pLevel->AddMap(pMap1);
+	pLevel->AddMap(pMap1);
 	pLevel->AddMap(pMap2);
-	//pLevel->AddMap(pMap3);
+	pLevel->AddMap(pMap3);
 	pLevel->ChangeMap();
 
 	pLevel->AddToLayout(pGoal);
@@ -206,7 +206,6 @@ void Update(const float deltaTime)
 		{
 			obj->SetDebug(true);
 		}
-		
 		pressedLastFrame = true;
 	}
 	else if(App::IsKeyPressed('Q') == false && pressedLastFrame)
