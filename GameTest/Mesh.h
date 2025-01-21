@@ -17,7 +17,7 @@ namespace Echo
         // im not entirely sure what I should be calling these variables, for now they are arg1 and arg2
         Mesh(MeshType type, Vector2& position, Vector4& colour, float& rotation, float arg1, float arg2);
         Mesh(const Mesh& other);
-        //Mesh& operator=(const Mesh& other);
+        //Mesh assignment operator
         void operator=(const Mesh& other) 
         {
             m_Type = other.m_Type;

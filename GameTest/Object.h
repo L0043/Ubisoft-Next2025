@@ -14,7 +14,9 @@ namespace Echo
         Interactible    = 1 << 2,
         Metaphysical    = 1 << 3
     };
-
+    // this is the base class that practially everything derives from, I wanted to have everything I make be able to be stored in one list 
+    // and go through their update and draw calls at the same time.
+    // its a bit messy due to it evolving continuously as I went over these past 2.5 days
 	class Object
 	{
 	public:

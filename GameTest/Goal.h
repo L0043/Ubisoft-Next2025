@@ -2,7 +2,7 @@
 #include "Object.h"
 namespace Echo
 {
-	// this class is simply the goal post of the minigolf course, 
+	// this class is simply the goal post of the minigolf course and storing the player's score
 	class Goal : public Object
 	{
 	public:

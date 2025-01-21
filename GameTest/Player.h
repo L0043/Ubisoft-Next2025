@@ -6,7 +6,7 @@ class CController;
 namespace Echo
 {
 	class Ball;
-    // this class is going to be the golf club, it will have a sprite(may be wireframe) and an AABB
+    // this class is going to be the golf club, it will have a mesh and an AABB
     // the player will be able to move the golf ball by hitting it with this object.
 	class Player
 	{

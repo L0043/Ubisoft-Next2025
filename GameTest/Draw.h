@@ -5,6 +5,7 @@ namespace
 {
     // take in start, end, colour, and thickness - thickness broken
     // created so I could add line thickness to the draw function but I realised I dont need this and have very limited time. :(
+    // I still used it the whole time as I wanted to get more acustomed to abstracting things away into seperate things.
     void Draw(Vector2 start, Vector2 end, Vector4 colour)
     {
         // draw a line from start to end

@@ -88,6 +88,8 @@ namespace Echo
 		if (removed != m_Layout.end())
 			m_Layout.erase(removed);
 	}
+	// I personally feel as though there are most likely a miriade of better solutions to my problem of 
+	// accessing the map geometry at the same time as the non static objects, unfortunately this is the best I could come up with.
 	void Level::LoadMap(Map* newMap)
 	{
 		//m_Geometry = newMap->GetGeometry();

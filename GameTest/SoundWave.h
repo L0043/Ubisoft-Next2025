@@ -3,7 +3,7 @@
 namespace Echo 
 {
 	// this class will instantiate from the collision point and spread for its duration, it will then destroy itself
-	// all Walls that it collides with will be revealed
+	// all Walls/Wall Segments that it collides with will be revealed
 	class SoundWave : public Object
 	{
 	public:

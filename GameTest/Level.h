@@ -4,6 +4,8 @@
 #include "EventListener.h"
 namespace Echo
 {
+	// the level class is essentially a world class, 
+	// it is the only EventListener as this was the best place I could think of to handle all Events
 	class Map;
 	class Level : public EventListener
 	{
