@@ -82,7 +82,6 @@
     <ClInclude Include="EventListener.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="SoundWave.h" />
-    <ClInclude Include="PowerUp.h" />
     <ClInclude Include="SegmentedWall.h" />
   </ItemGroup>
   <ItemGroup>

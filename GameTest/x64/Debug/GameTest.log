@@ -9,13 +9,13 @@ C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\App\AppSettings.h(64,1): messag
   SimpleSprite.cpp
 C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\App\SimpleSprite.cpp(100,29): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   Ball.cpp
-C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Ball.cpp(62,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Ball.cpp(64,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   EventManager.cpp
   GameTest.cpp
 C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\GameTest.cpp(47,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Goal.cpp
   Level.cpp
-C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Level.cpp(54,11): warning C4101: 'penetrationDepth': unreferenced local variable
+C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Level.cpp(58,11): warning C4101: 'penetrationDepth': unreferenced local variable
   Map.cpp
   Mesh.cpp
 C:\Users\lill0043\Downloads\UbiNextEcho\GameTest\Mesh.cpp(20,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data

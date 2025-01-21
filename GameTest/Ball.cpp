@@ -20,6 +20,8 @@ namespace Echo
 
     Ball::~Ball()
     {
+        while (!m_SoundWaves.empty())
+            m_SoundWaves.pop_back();
     }
 
     void Ball::Update(float deltaTime)

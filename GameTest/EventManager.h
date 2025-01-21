@@ -8,6 +8,8 @@ namespace Echo
 	class Event;
 	class EventListener;
 	// try to make this a singleton if you have time
+	// I made the event manager solely for the purpose of seperating collision detection from the handling
+	// I did my best to make it polymorphic so it could take in all sorts of events and send them to whoever is waiting for them
 	class EventManager
 	{
 	public:
@@ -15,8 +17,7 @@ namespace Echo
 		~EventManager();
 		void AddEvent(Event* pEvent);
 		void ProcessQueue();
-		// I would use this if I was making a more generalised engine and wasnt sending the data directly to the parties involved
-		// Though I might set it up for the Level class if I have time
+		// take in the class and what type of event it is looking out for
 		void RegisterListener(EventListener* listener, EventType type)
 		{
 			m_Listeners[type].push_back(listener);

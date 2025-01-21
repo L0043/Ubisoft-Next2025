@@ -9,6 +9,8 @@ namespace Echo
 
     Map::~Map()
     {
+        while (!m_Geometry.empty())
+            m_Geometry.pop_back();
     }
     void Map::AddGeometry(Object* object)
     {

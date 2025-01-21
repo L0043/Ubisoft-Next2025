@@ -13,6 +13,10 @@ namespace Echo
     }
     Level::~Level()
     {
+		while (!m_Layout.empty())
+			m_Layout.pop_back();
+		while (!m_Maps.empty())
+			m_Maps.pop_back();
     }
     void Level::Update(float deltaTime)
     {

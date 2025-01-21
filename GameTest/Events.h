@@ -7,13 +7,17 @@ namespace Echo
 
 	class Event
 	{
+		// this was done so the event manager could access private variables of the class
+		// while keeping others from doing the same (i think? im not entirely confident), 
+		// though I did directly send the CollisionEvent's data variable to the listeners, whoops.
 		friend class EventManager;
 	public:
 		Event() {};
 		virtual ~Event() = 0 {};
 		virtual EventType GetType() = 0;
 	};
-
+	// I thought it would be good to store all the data in a struct, 
+	// keep the info together and make my code a little easier on the eyes
 	struct CollisionData
 	{
 		Object* m_ObjA;

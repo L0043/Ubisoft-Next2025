@@ -5,8 +5,8 @@
 #include "Map.h"
 namespace Echo
 {
-    Goal::Goal(MeshType meshType, ObjectType objType, Vector2 position, Vector2 size, Vector4 colour,Level* level, CSimpleSprite sprite):
-        Object(position, size, 0, colour, meshType,objType,level, &sprite)
+    Goal::Goal(MeshType meshType, ObjectType objType, Vector2 position, Vector2 size, Vector4 colour,Level* level):
+        Object(position, size, 0, colour, meshType,objType,level)
     {
         isStatic = true;
         m_AABB.SetScale({ m_Size.x * 2.0f, m_Size.x * 2.0f });
@@ -33,6 +33,7 @@ namespace Echo
             if (b)
                 b->Reset();
             GoalHit();
+            Reset();
         }
         isCollisionProcessed = true;
     }
@@ -42,5 +43,10 @@ namespace Echo
         App::PlaySoundW(".\\TestData\\score.wav");
         m_Level->ChangeMap();
         m_Score++;
+    }
+    void Goal::Reset()
+    {
+        m_StartingPosition = m_Level->GetMap()->GetGoalStartingPosition();
+        m_Position = m_StartingPosition;
     }
 }

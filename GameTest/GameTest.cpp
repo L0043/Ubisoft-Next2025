@@ -46,16 +46,6 @@ void Init()
 {
 	srand(time(NULL));
 
-	testSprite = App::CreateSprite(".\\TestData\\Test.bmp", 8, 4);
-	testSprite->SetPosition(400.0f, 400.0f);
-	const float speed = 1.0f / 15.0f;
-	testSprite->CreateAnimation(ANIM_BACKWARDS, speed, { 0,1,2,3,4,5,6,7 });
-	testSprite->CreateAnimation(ANIM_LEFT, speed, { 8,9,10,11,12,13,14,15 });
-	testSprite->CreateAnimation(ANIM_RIGHT, speed, { 16,17,18,19,20,21,22,23 });
-	testSprite->CreateAnimation(ANIM_FORWARDS, speed, { 24,25,26,27,28,29,30,31 });
-	testSprite->SetScale(1.0f);
-	//------------------------------------------------------------------------
-	
 	pMap1 = new Echo::Map();
 	pMap2 = new Echo::Map();
 	pMap3 = new Echo::Map();
@@ -76,33 +66,30 @@ void Init()
 
 	float wallThickness = 20;
 	float ballFit = pBall->GetRadius() * 2 * 2; // value that will gaurnetee that the ball fits
-
+	int numberOfDivisions = 40;
 	
 
-	pGoal = new Echo::Goal(Echo::MeshType::Circle, Echo::ObjectType::Interactible, { 686, 266 }, { 25, 8 }, { 0,1,0,1 }, pLevel, *testSprite);
+	pGoal = new Echo::Goal(Echo::MeshType::Circle, Echo::ObjectType::Interactible, { 686, 266 }, { 25, 8 }, { 0,1,0,1 }, pLevel);
 
 	#pragma region Map1
 	{
-		Echo::SegmentedWall* border0 = new Echo::SegmentedWall({ 40, 370 }, { wallThickness, 680 }, 50, pLevel, pMap1);		// left
+		Echo::SegmentedWall* border0 = new Echo::SegmentedWall({ 40, 370 }, { wallThickness, 680 }, numberOfDivisions, pLevel, pMap1);		// left
 		border0->m_Name = "Left";
-		Echo::SegmentedWall* border1 = new Echo::SegmentedWall({ 500, 40 }, { 900, wallThickness }, 50, pLevel, pMap1);		// bottom
+		Echo::SegmentedWall* border1 = new Echo::SegmentedWall({ 500, 40 }, { 900, wallThickness }, numberOfDivisions, pLevel, pMap1);		// bottom
 		border1->m_Name = "Bottom";
-		Echo::SegmentedWall* border2 = new Echo::SegmentedWall({ 500, 700 }, { 900, wallThickness }, 50, pLevel, pMap1);		// top
+		Echo::SegmentedWall* border2 = new Echo::SegmentedWall({ 500, 700 }, { 900, wallThickness }, numberOfDivisions, pLevel, pMap1);		// top
 		border2->m_Name = "Top";
-		Echo::SegmentedWall* border3 = new Echo::SegmentedWall({ 960, 370 }, { wallThickness, 680 }, 50, pLevel, pMap1);		// right
+		Echo::SegmentedWall* border3 = new Echo::SegmentedWall({ 960, 370 }, { wallThickness, 680 }, numberOfDivisions, pLevel, pMap1);		// right
 		border3->m_Name = "Right";
-		Echo::SegmentedWall* leftLongWall = new Echo::SegmentedWall({ 220, 680 - ballFit }, { 340, wallThickness }, 5, pLevel, pMap1);
-		Echo::SegmentedWall* Obtrusion = new Echo::SegmentedWall({ 330, 700 - ballFit }, { wallThickness, 20 }, 5, pLevel, pMap1);
-		Echo::SegmentedWall* Obtrusion1 = new Echo::SegmentedWall({ 500, 620 }, { wallThickness, 140 }, 5, pLevel, pMap1);
-		Echo::SegmentedWall* cube = new Echo::SegmentedWall({ 700, 550 }, { 100, 100 }, 5, pLevel, pMap1);
-		Echo::SegmentedWall* wall = new Echo::SegmentedWall({ 500, 420 }, { 780, wallThickness }, 5, pLevel, pMap1);
-		Echo::SegmentedWall* wallLeftVert = new Echo::SegmentedWall({ 60 + ballFit, 255 }, { wallThickness, 310 }, 5, pLevel, pMap1);
-		Echo::SegmentedWall* wallMidVert = new Echo::SegmentedWall({ 686, 354 }, { 80, 114 }, 5, pLevel, pMap1);
-		Echo::SegmentedWall* wallRightVert = new Echo::SegmentedWall({ 940 - ballFit, 60 + 145 }, { wallThickness, 310 }, 5, pLevel, pMap1);
-		Echo::SegmentedWall* wallLowerHori = new Echo::SegmentedWall({ 390, 260 }, { 300,  wallThickness }, 5, pLevel, pMap1);
-		pGoal->SetPosition({ 686, 266 });
-		pBall->SetStartingPosition({ 70, 660 });
-		pBall->SetPosition({ 70, 660 });
+		Echo::SegmentedWall* leftLongWall = new Echo::SegmentedWall({ 220, 680 - ballFit }, { 340, wallThickness }, numberOfDivisions, pLevel, pMap1);
+		Echo::SegmentedWall* Obtrusion = new Echo::SegmentedWall({ 330, 700 - ballFit }, { wallThickness, 20 }, numberOfDivisions, pLevel, pMap1);
+		Echo::SegmentedWall* Obtrusion1 = new Echo::SegmentedWall({ 500, 620 }, { wallThickness, 140 }, numberOfDivisions, pLevel, pMap1);
+		Echo::SegmentedWall* cube = new Echo::SegmentedWall({ 700, 550 }, { 100, 100 }, numberOfDivisions, pLevel, pMap1);
+		Echo::SegmentedWall* wall = new Echo::SegmentedWall({ 500, 420 }, { 780, wallThickness }, numberOfDivisions, pLevel, pMap1);
+		Echo::SegmentedWall* wallLeftVert = new Echo::SegmentedWall({ 60 + ballFit, 255 }, { wallThickness, 310 }, numberOfDivisions, pLevel, pMap1);
+		Echo::SegmentedWall* wallMidVert = new Echo::SegmentedWall({ 686, 354 }, { 80, 114 }, numberOfDivisions, pLevel, pMap1);
+		Echo::SegmentedWall* wallRightVert = new Echo::SegmentedWall({ 940 - ballFit, 60 + 145 }, { wallThickness, 310 }, numberOfDivisions, pLevel, pMap1);
+		Echo::SegmentedWall* wallLowerHori = new Echo::SegmentedWall({ 390, 260 }, { 300,  wallThickness }, numberOfDivisions, pLevel, pMap1);
 		pMap1->AddGeometry(border0);
 		pMap1->AddGeometry(border1);
 		pMap1->AddGeometry(border2);
@@ -116,26 +103,25 @@ void Init()
 		pMap1->AddGeometry(wallMidVert);
 		pMap1->AddGeometry(wallRightVert);
 		pMap1->AddGeometry(wallLowerHori);
+		pMap1->SetGoalStartingPosition({ 686, 266 });
+		pMap1->SetStartingPosition({ 70, 660 });
 	}
 #pragma endregion
 
 	#pragma region Map2
 	{
-		Echo::SegmentedWall* border0 = new Echo::SegmentedWall({ 40, 370 }, { wallThickness, 680 }, 50, pLevel, pMap2);		// left
+		Echo::SegmentedWall* border0 = new Echo::SegmentedWall({ 40, 370 }, { wallThickness, 680 }, numberOfDivisions, pLevel, pMap2);		// left
 		border0->m_Name = "Left";
-		Echo::SegmentedWall* border1 = new Echo::SegmentedWall({ 500, 40 }, { 900, wallThickness }, 50, pLevel, pMap2);		// bottom
+		Echo::SegmentedWall* border1 = new Echo::SegmentedWall({ 500, 40 }, { 900, wallThickness }, numberOfDivisions, pLevel, pMap2);		// bottom
 		border1->m_Name = "Bottom";
-		Echo::SegmentedWall* border2 = new Echo::SegmentedWall({ 500, 700 }, { 900, wallThickness }, 50, pLevel, pMap2);		// top
+		Echo::SegmentedWall* border2 = new Echo::SegmentedWall({ 500, 700 }, { 900, wallThickness }, numberOfDivisions, pLevel, pMap2);		// top
 		border2->m_Name = "Top";
-		Echo::SegmentedWall* border3 = new Echo::SegmentedWall({ 960, 370 }, { wallThickness, 680 }, 50, pLevel, pMap2);		// right
+		Echo::SegmentedWall* border3 = new Echo::SegmentedWall({ 960, 370 }, { wallThickness, 680 }, numberOfDivisions, pLevel, pMap2);		// right
 		border3->m_Name = "Right";
-		Echo::SegmentedWall* firstWall = new Echo::SegmentedWall({ 120 + ballFit, 420 }, { wallThickness,550 }, 5, pLevel, pMap2);
-		Echo::SegmentedWall* secondWall = new Echo::SegmentedWall({ 320 + ballFit, 320 }, { wallThickness,550 }, 5, pLevel, pMap2);
-		Echo::SegmentedWall* thirdWall = new Echo::SegmentedWall({ 520 + ballFit, 420 }, { wallThickness,550 }, 5, pLevel, pMap2);
-		Echo::SegmentedWall* fourthWall = new Echo::SegmentedWall({ 720 + ballFit, 320 }, { wallThickness,550 }, 5, pLevel, pMap2);
-		pGoal->SetPosition({ 880, 120 });
-		pBall->SetStartingPosition({ 70, 660 });
-		pBall->SetPosition({ 70, 660 });
+		Echo::SegmentedWall* firstWall = new Echo::SegmentedWall({ 120 + ballFit, 420 }, { wallThickness,550 }, numberOfDivisions, pLevel, pMap2);
+		Echo::SegmentedWall* secondWall = new Echo::SegmentedWall({ 320 + ballFit, 320 }, { wallThickness,550 }, numberOfDivisions, pLevel, pMap2);
+		Echo::SegmentedWall* thirdWall = new Echo::SegmentedWall({ 520 + ballFit, 420 }, { wallThickness,550 }, numberOfDivisions, pLevel, pMap2);
+		Echo::SegmentedWall* fourthWall = new Echo::SegmentedWall({ 720 + ballFit, 320 }, { wallThickness,550 }, numberOfDivisions, pLevel, pMap2);
 		pMap2->AddGeometry(border0);
 		pMap2->AddGeometry(border1);
 		pMap2->AddGeometry(border2);
@@ -144,25 +130,24 @@ void Init()
 		pMap2->AddGeometry(secondWall);
 		pMap2->AddGeometry(thirdWall);
 		pMap2->AddGeometry(fourthWall);
+		pMap2->SetGoalStartingPosition({ 880, 120 });
+		pMap2->SetStartingPosition({ 70, 660 });
 	}
 #pragma endregion
 	
 	#pragma region Map3
 	{
-		Echo::SegmentedWall* border0 = new Echo::SegmentedWall({ 40, 370 }, { wallThickness, 680 }, 50, pLevel, pMap3);		// left
+		Echo::SegmentedWall* border0 = new Echo::SegmentedWall({ 40, 370 }, { wallThickness, 680 }, numberOfDivisions, pLevel, pMap3);		// left
 		border0->m_Name = "Left";
-		Echo::SegmentedWall* border1 = new Echo::SegmentedWall({ 500, 40 }, { 900, wallThickness }, 50, pLevel, pMap3);		// bottom
+		Echo::SegmentedWall* border1 = new Echo::SegmentedWall({ 500, 40 }, { 900, wallThickness }, numberOfDivisions, pLevel, pMap3);		// bottom
 		border1->m_Name = "Bottom";
-		Echo::SegmentedWall* border2 = new Echo::SegmentedWall({ 500, 700 }, { 900, wallThickness }, 50, pLevel, pMap3);		// top
+		Echo::SegmentedWall* border2 = new Echo::SegmentedWall({ 500, 700 }, { 900, wallThickness }, numberOfDivisions, pLevel, pMap3);		// top
 		border2->m_Name = "Top";
-		Echo::SegmentedWall* border3 = new Echo::SegmentedWall({ 960, 370 }, { wallThickness, 680 }, 50, pLevel, pMap3);		// right
+		Echo::SegmentedWall* border3 = new Echo::SegmentedWall({ 960, 370 }, { wallThickness, 680 }, numberOfDivisions, pLevel, pMap3);		// right
 		border3->m_Name = "Right";
-		Echo::SegmentedWall* block = new Echo::SegmentedWall({ 540, 370 }, { 200, 200 }, 5, pLevel, pMap3);
-		Echo::SegmentedWall* leg0 = new Echo::SegmentedWall({ 540, 220 }, { 75, 150 }, 5, pLevel, pMap3, true, { 500, 220 }, { 580, 220 });
-		Echo::SegmentedWall* leg1 = new Echo::SegmentedWall({ 540, 520 }, { 75, 150 }, 5, pLevel, pMap3);
-		pGoal->SetPosition({ 940 - pGoal->GetSize().x, 370 });
-		pBall->SetStartingPosition({ 70, 660 });
-		pBall->SetPosition({ 70, 660 });
+		Echo::SegmentedWall* block = new Echo::SegmentedWall({ 540, 370 }, { 200, 200 }, numberOfDivisions, pLevel, pMap3);
+		Echo::SegmentedWall* leg0 = new Echo::SegmentedWall({ 540, 220 }, { 75, 150 }, numberOfDivisions, pLevel, pMap3, true, { 500, 220 }, { 580, 220 });
+		Echo::SegmentedWall* leg1 = new Echo::SegmentedWall({ 540, 520 }, { 75, 150 }, numberOfDivisions, pLevel, pMap3);
 		pMap3->AddGeometry(border0);
 		pMap3->AddGeometry(border1);
 		pMap3->AddGeometry(border2);
@@ -170,16 +155,22 @@ void Init()
 		pMap3->AddGeometry(block);
 		pMap3->AddGeometry(leg0);
 		pMap3->AddGeometry(leg1);
+		pMap3->SetStartingPosition({ 70, 370 });
+		pMap3->SetGoalStartingPosition({ 940 - pGoal->GetSize().x, 370});
 	}
 #pragma endregion
 
 
 	//pLevel->AddMap(pMap1);
-	//pLevel->AddMap(pMap2);
-	pLevel->AddMap(pMap3);
+	pLevel->AddMap(pMap2);
+	//pLevel->AddMap(pMap3);
 	pLevel->ChangeMap();
 
 	pLevel->AddToLayout(pGoal);
+	pBall->SetStartingPosition(pLevel->GetMap()->GetStartingPosition());
+	pBall->SetPosition(pLevel->GetMap()->GetStartingPosition());
+	pGoal->SetStartingPosition(pLevel->GetMap()->GetGoalStartingPosition());
+	pGoal->SetPosition(pLevel->GetMap()->GetGoalStartingPosition());
 }
 
 void StartFrame()

@@ -199,7 +199,6 @@
     <ClInclude Include="miniaudio\miniaudio.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="PowerUp.h" />
     <ClInclude Include="SegmentedWall.h" />
     <ClInclude Include="SoundWave.h" />
     <ClInclude Include="stb_image\stb_image.h" />
