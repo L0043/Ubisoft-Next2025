@@ -6,6 +6,7 @@ namespace Echo
 {
     struct CollisionData;
     class Level;
+    class Map;
     enum ObjectType : uint32_t
     {
         GolfBall        = 1 << 0,
@@ -25,16 +26,17 @@ namespace Echo
         virtual void OnCollision(CollisionData* data);
         void SetPosition(Vector2 position) { m_Position = position; };
         void SetSize(Vector2 size) { m_Size = size; };
-        void SetRotation(Vector2 rotation) { m_Rotation = rotation; };
+        void SetRotation(float rotation) { m_Rotation = rotation; };
         void SetSprite(CSimpleSprite* sprite) { m_Sprite = sprite; };
         void SetColour(Vector4 colour) { m_Colour = colour; };
         void SetMesh(Mesh mesh) { m_Mesh = mesh; };
         void SetStatic(bool stat) { isStatic = stat; }
+        void SetDebug(bool debug) { isDebug = debug; if (isDebug)m_Colour = { 1,1,1,1 }; else { m_Colour = m_InitColour; } }
         void SetLayerMask(uint32_t type) { m_LayerMask = type; }
         void SetLayer(ObjectType type) { m_Layer = type; }
         Vector2 GetPosition() const { return m_Position; };
         Vector2 GetSize()const { return m_Size; };
-        Vector2 GetRotation()const { return m_Rotation; };
+        float GetRotation()const { return m_Rotation; };
         Vector4 GetColour()const { return m_Colour; };
         AABB GetAABB()const { return m_AABB; };
         Mesh GetMesh()const { return m_Mesh; };
@@ -42,7 +44,7 @@ namespace Echo
         uint32_t GetLayerMask() const { return m_LayerMask; }
         ObjectType GetLayer() const { return m_Layer; }
         bool IsStatic() const { return isStatic; }
-
+        bool IsDebug() const { return isDebug; }
         std::string m_Name = "";
 	protected:
         CSimpleSprite* m_Sprite;
@@ -53,8 +55,9 @@ namespace Echo
         Mesh m_Mesh;
         Vector2 m_Position;
         Vector2 m_Size;
-        Vector2 m_Rotation;
+        float m_Rotation;
         Vector4 m_Colour;
+        Vector4 m_InitColour;
         bool isStatic = false;
         bool isDebug = false;
         bool isCollisionProcessed;

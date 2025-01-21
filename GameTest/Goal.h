@@ -8,10 +8,11 @@ namespace Echo
 		Goal(MeshType meshType, ObjectType objType, Vector2 position, Vector2 size, Vector4 colour, Level* level, CSimpleSprite sprite);
 		~Goal();
 		virtual void Update(float deltaTime) override;
-		virtual void Draw() override;
 		virtual void OnCollision(CollisionData* data) override;
 		void GoalHit();
+		int GetScore() const { return m_Score; };
 	private:
 		bool text = false;
+		int m_Score = 0;
 	};
 }

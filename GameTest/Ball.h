@@ -14,6 +14,8 @@ namespace Echo
         virtual void Update(float deltaTime) override;
         virtual void Draw() override;
         virtual void OnCollision(CollisionData* data) override;
+        void SetStartingPosition(Vector2 position) { m_StartingPosition = position; };
+        void Reset();
         void SetRadius(float radius);
         void SetMass(float mass) { m_Mass = mass; };
         void SetFriction(float friction) { m_Friction = friction; };
@@ -22,6 +24,7 @@ namespace Echo
         float GetRadius() const { return m_Radius; };
         Vector2 GetVelocity() const { return m_Velocity; };
 	private:
+        Vector2 m_StartingPosition;
         std::vector<SoundWave*> m_SoundWaves;
         const int m_Segments;
         float m_Radius;
@@ -29,6 +32,7 @@ namespace Echo
         float m_Friction = 0.01f;
         float m_MoveSpeed = 10;
         float m_MaxSpeed = 50;
+        float m_DampeningAmount = 0.5f;
         Vector2 m_Velocity;
         Vector2 m_Acceleration;
         bool initCollide = false;

@@ -5,6 +5,7 @@ c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\stdafx.obj
 c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\wall.obj
 c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\stb_image.obj
 c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\soundwave.obj
+c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\segmentedwall.obj
 c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\player.obj
 c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\object.obj
 c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\miniaudio.obj
@@ -21,7 +22,6 @@ c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\simplecontroller.obj
 c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\main.obj
 c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\app.obj
 c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\aabb.obj
-c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\segmentedwall.obj
 c:\users\lill0043\downloads\ubinextecho\x64\debug\gametest.exe
 c:\users\lill0043\downloads\ubinextecho\x64\debug\gametest.pdb
 c:\users\lill0043\downloads\ubinextecho\gametest\x64\debug\gametest.ilk

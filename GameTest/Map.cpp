@@ -10,6 +10,16 @@ namespace Echo
     Map::~Map()
     {
     }
+    void Map::AddGeometry(Object* object)
+    {
+        m_Geometry.push_back(object);
+    }
+    void Map::RemoveGeometry(Object* object)
+    {
+        const auto removed = std::remove(m_Geometry.begin(), m_Geometry.end(), object);
+        if(removed != m_Geometry.end())
+            m_Geometry.erase(removed);
+    }
     // this func became hazardous the moment I decided to make Objects require a reference to the level.
     //void Map::CreateGeometry(MeshType meshType, ObjectType objType, Vector2 position, Vector2 args, Vector4 colour, float rotation)
     //{

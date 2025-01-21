@@ -13,11 +13,12 @@ namespace Echo
 		virtual void Update(float deltaTime) override;
 		virtual void Draw() override;
 		virtual void OnCollision(CollisionData* data) override;
-
+		void Destroy();
 	private:
-		const float m_Duration = 10; //duration in seconds
-		float m_Timer = 0;
-		const char* m_fileName;
+		const float m_InitDuration;
+		float m_Duration = 2; //duration in seconds
+		float m_ColourStep;
+		const char* m_FileName;
 		float m_Radius;
 		float m_Speed = 100;
 	};

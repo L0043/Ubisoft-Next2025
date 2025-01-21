@@ -16,8 +16,7 @@ namespace Echo
         virtual void Draw() override;
 		virtual void OnCollision(CollisionData* data) override;
 	private:
-		const int m_NumOfDivisionsPerSide = 100;
-        std::vector<Vector2> m_WallDivisions;
+		
 		bool isActive;
 	};
 }

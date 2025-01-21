@@ -9,7 +9,8 @@ namespace Echo
 {
     Object::Object(Vector2 position, Vector2 size, float rotation,Vector4 colour, MeshType meshType, ObjectType objType, Level* level, CSimpleSprite* sprite):
         m_AABB(position, size.x, size.y, Vector4(1, 1, 1, 1)),
-        m_Mesh(meshType, m_Position, m_Colour, size.x, size.y),
+        m_Rotation(rotation),
+        m_Mesh(meshType, m_Position, m_Colour, m_Rotation, size.x, size.y),
         m_Position(position),
         m_Size(size),
         m_Sprite(sprite),
@@ -18,9 +19,7 @@ namespace Echo
         m_Level(level)
     {
         m_LayerMask = ObjectType::GolfBall | ObjectType::Interactible | ObjectType::Terrain| ObjectType::Metaphysical;
-        m_Level->GetMap()->AddGeometry(this);
-        auto map = m_Level->GetMap();
-        int aj = 5;
+        m_InitColour = m_Colour;
     }
     Object::~Object()
     {
@@ -62,5 +61,4 @@ namespace Echo
         m_AABB.SetPosition(m_Position);
         isCollisionProcessed = true;
     }
-
 }

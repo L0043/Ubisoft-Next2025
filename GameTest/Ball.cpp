@@ -1,24 +1,21 @@
 #include "stdafx.h"
 #include "Ball.h"
 #include "SoundWave.h"
+#include "Level.h"
+#include "Map.h"
 namespace Echo
 {
     Ball::Ball(Vector2 position, float radius, int segments, Level* m_Level, MeshType meshType, ObjectType objType) :
         Object(position, {radius, (float)segments}, 0.0f, { 1,1,1,1 }, meshType, objType, m_Level),
         m_Radius(radius),
-        m_Segments(segments)
+        m_Segments(segments),
+        m_StartingPosition(position)
     {
         m_AABB.SetScale({ m_Radius * 2.0f, m_Radius * 2.0f });
         m_AABB.SetColor(m_Colour);
         m_Colour = Vector4(1, 0, 0, 1);
         m_LayerMask = ~ObjectType::Metaphysical;
-        isDebug = true;
         m_Name = "Ball";
-        //for(int i = 0; i < m_Segments; i++)
-        //{
-        //    float angle = 2 * PI * i / m_Segments;
-        //    m_Circle.push_back(Vector2(cos(angle) * m_Radius, sin(angle) * m_Radius));
-        //}
     }
 
     Ball::~Ball()
@@ -32,9 +29,11 @@ namespace Echo
         isCollisionProcessed = false;
         m_AABB.SetScale({m_Radius * 2.0f, m_Radius * 2.0f});
         m_Position += m_Velocity * m_MoveSpeed * deltaTime;
-        //m_Velocity *= 1 - m_Friction;
+        m_Velocity *= 1 - m_Friction;
         if (m_Velocity.Clamp(m_MaxSpeed))
             m_Velocity = m_Velocity.Normalized() * m_MaxSpeed;
+        if (m_Velocity.Length() < 0.7)
+            m_Velocity = Vector2::Zero();
 
         m_AABB.SetPosition(m_Position);
     }
@@ -56,12 +55,25 @@ namespace Echo
         float dot = m_Velocity.Dot(data->m_Normal);
 
         Vector2 reflectedVelocity = m_Velocity - data->m_Normal * (2 * dot);
-        m_Velocity = reflectedVelocity * 0.9f;
+        m_Velocity = reflectedVelocity * m_DampeningAmount;
 
         if(data->m_ObjB->GetLayer() == ObjectType::Terrain)
         {
-            m_SoundWaves.push_back(new SoundWave(m_Position, m_Size.x, 100, ".\\TestData\\Error.wav", 20, m_Level));
+            float duration = 0.1 * m_Velocity.Length();
+            duration = fminf(duration, 2.5f);
+            m_SoundWaves.push_back(new SoundWave(m_Position, m_Size.x, 100, ".\\TestData\\objHit.wav", duration, m_Level));
         }
+
+    }
+
+    void Ball::Reset()
+    {
+        m_Position = m_StartingPosition;
+        m_Acceleration = Vector2::Zero();
+        m_Velocity = Vector2::Zero();
+
+        while (!m_SoundWaves.empty())
+            m_SoundWaves.pop_back();
 
     }
 

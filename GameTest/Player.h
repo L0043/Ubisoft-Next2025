@@ -17,6 +17,7 @@ namespace Echo
         void Update(float deltaTime);
         void Draw();
 		void Input();
+		int GetStrokes() const { return m_Strokes; }
 	private:
 		// base class variables
 		
@@ -25,6 +26,7 @@ namespace Echo
 		Vector2 m_Position;
 		Vector2 m_Size;
 		Vector4 m_Colour;
+		float m_Rotation;
 		std::string m_Name = "";
 		float m_ChargeForce = 0.0f;
 		const float m_ChargeForceLimit = 100.0f;
@@ -32,5 +34,6 @@ namespace Echo
 		Ball& m_Ball;
 		bool text;
 		bool wasPressedLastFrame;
+		int m_Strokes = 0;
 	};
 }
