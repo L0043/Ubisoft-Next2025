@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 class Vector4
 {
 public:
@@ -11,7 +10,7 @@ public:
     // addition
     Vector4 operator+(const Vector4& other) { return Vector4(x + other.x, y + other.y, z + other.z, w + other.w); };
     void operator+=(const Vector4& other) { x += other.x, y += other.y; z += other.z; w += other.w; };
-    void operator+=(const float& other) { x += other, y += other; z += other; w += other;};
+    void operator+=(const float& other) { x += other, y += other; z += other; w += other; };
 
     // subtraction
     Vector4 operator-(const Vector4& other) { return Vector4(x - other.x, y - other.y, z - other.z, w - other.z); };
@@ -20,11 +19,11 @@ public:
 
     // multiplication
     Vector4 operator*(const float& other) { return Vector4(x * other, y * other, z * other, w * other); };
-    void operator*=(const float& other) { x *= other, y *= other; z *= other; w *= other;};
+    void operator*=(const float& other) { x *= other, y *= other; z *= other; w *= other; };
 
     // division
     Vector4 operator/(const float& other) { return Vector4(x / other, y / other, z / other, w / other); };
-    void operator/=(const float& other) { x /= other, y /= other; z /= other; w /= other;};
+    void operator/=(const float& other) { x /= other, y /= other; z /= other; w /= other; };
 
     //magnitude
     float LengthSquared() const { return x * x + y * y + z * z + w * w; };
@@ -47,7 +46,7 @@ public:
     //bool operators :D
     bool operator>= (const Vector4& other) { return x >= other.x && y >= other.y && z >= other.z && w >= other.w; };
     bool operator<= (const Vector4& other) { return x <= other.x && y <= other.y && z <= other.z && w <= other.w; };
-    bool operator> (const Vector4& other) { return x > other.x && y > other.y && z > other.z && w > other.w;};
+    bool operator> (const Vector4& other) { return x > other.x && y > other.y && z > other.z && w > other.w; };
     bool operator< (const Vector4& other) { return x < other.x && y < other.y && z < other.z && w < other.w;; };
     bool operator== (const Vector4& other) { return x == other.x && y == other.y && z == other.z && w == other.w;; };
     bool operator!= (const Vector4& other) { return x != other.x || y != other.y || z != other.z || w != other.w;; };

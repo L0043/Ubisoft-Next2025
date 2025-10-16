@@ -10,17 +10,9 @@
 //------------------------------------------------------------------------
 #include "app\app.h"
 //------------------------------------------------------------------------
-#include "AABB.h"
-#include "Player.h"
-#include "Ball.h"
-#include "Wall.h"
-#include "Level.h"
-#include "Goal.h"
-#include "Map.h"
-//------------------------------------------------------------------------
 // Example data....
 //------------------------------------------------------------------------
-CSimpleSprite *testSprite;
+CSimpleSprite* testSprite;
 enum
 {
 	ANIM_FORWARDS,
@@ -29,14 +21,10 @@ enum
 	ANIM_RIGHT,
 };
 //------------------------------------------------------------------------
-Echo::EventManager EventManager;
-Echo::Level* pLevel;
-Echo::Map* pMap1;
-Echo::AABB* aabb1;
-Echo::Player* pClub;
-Echo::Ball* pBall;
-Echo::Goal* pGoal;
 
+//------------------------------------------------------------------------
+// Called before first update. Do any initial setup here.
+//------------------------------------------------------------------------
 void Init()
 {
 	//------------------------------------------------------------------------
@@ -50,45 +38,7 @@ void Init()
 	testSprite->CreateAnimation(ANIM_FORWARDS, speed, { 24,25,26,27,28,29,30,31 });
 	testSprite->SetScale(1.0f);
 	//------------------------------------------------------------------------
-	
-	pMap1 = new Echo::Map();
-	pLevel = new Echo::Level(pMap1, EventManager);
-	pMap1->AttachLevel(pLevel);
 
-	//pLevel->LoadMap(pMap1);
-
-
-	float wallThickness = 20;
-	//aabb1 = new Echo::AABB(Vector2(400, 400), 100, 100,0, Vector4(1,1,1,1));
-	pBall = new Echo::Ball(Vector2(150, 150), 15.0f, 20, pLevel);
-	pClub = new Echo::Player(Vector2(0, 0), Vector2(20, 20), 0.0f, pBall);
-	Echo::Wall* border0 = new Echo::Wall({ 40, 400 }, { wallThickness, 700 }, 0, pLevel);	//left
-	Echo::Wall* border1 = new Echo::Wall({ 500, 40 }, { 900, wallThickness }, 0, pLevel);	//bottom
-	Echo::Wall* border2 = new Echo::Wall({ 500, 760 }, { 900, wallThickness }, 0,pLevel);	//top
-	Echo::Wall* border3 = new Echo::Wall({ 960, 400 }, { wallThickness, 700 }, 0,pLevel);	//left
-
-	pGoal = new Echo::Goal(Echo::MeshType::Circle, Echo::ObjectType::interactible, { 600, 400 }, { 30, 20 }, { 0,1,0,1 }, pLevel,*testSprite);
-
-	//pMap1->AddGeometry(pBall);
-	//pMap1->AddGeometry(border0);
-	//pMap1->AddGeometry(border1);
-	//pMap1->AddGeometry(border2);
-	//pMap1->AddGeometry(border3);
-	//pMap1->AddGeometry(pGoal);
-	////
-	//pLevel->LoadMap(pMap1);
-
-}
-
-void StartFrame()
-{
-	// handle collision events here
-	EventManager.ProcessQueue();
-}
-
-void EndFrame()
-{
-	pLevel->DetectCollisions();
 }
 
 //------------------------------------------------------------------------
@@ -97,17 +47,73 @@ void EndFrame()
 //------------------------------------------------------------------------
 void Update(const float deltaTime)
 {
-	// converting the deltaTime to be in seconds, 
-	// this is so I can keep the member variable values as numbers that make sense to me 
-	// without them being extremely fast (1.0 >=)
-	// this is because I am extremely used to using Unity
-	float dtSeconds = (deltaTime / 1000);
+	//------------------------------------------------------------------------
+	// Example Sprite Code....
+	testSprite->Update(deltaTime);
+	if (App::GetController().GetLeftThumbStickX() > 0.5f)
+	{
+		testSprite->SetAnimation(ANIM_RIGHT);
+		float x, y;
+		testSprite->GetPosition(x, y);
+		x += 1.0f;
+		testSprite->SetPosition(x, y);
+	}
+	if (App::GetController().GetLeftThumbStickX() < -0.5f)
+	{
+		testSprite->SetAnimation(ANIM_LEFT);
+		float x, y;
+		testSprite->GetPosition(x, y);
+		x -= 1.0f;
+		testSprite->SetPosition(x, y);
+	}
+	if (App::GetController().GetLeftThumbStickY() > 0.5f)
+	{
+		testSprite->SetAnimation(ANIM_FORWARDS);
+		float x, y;
+		testSprite->GetPosition(x, y);
+		y += 1.0f;
+		testSprite->SetPosition(x, y);
+	}
+	if (App::GetController().GetLeftThumbStickY() < -0.5f)
+	{
+		testSprite->SetAnimation(ANIM_BACKWARDS);
+		float x, y;
+		testSprite->GetPosition(x, y);
+		y -= 1.0f;
+		testSprite->SetPosition(x, y);
+	}
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_UP, false))
+	{
+		testSprite->SetScale(testSprite->GetScale() + 0.1f);
+	}
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_DOWN, false))
+	{
+		testSprite->SetScale(testSprite->GetScale() - 0.1f);
+	}
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_LEFT, false))
+	{
+		testSprite->SetAngle(testSprite->GetAngle() + 0.1f);
+	}
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_RIGHT, false))
+	{
+		testSprite->SetAngle(testSprite->GetAngle() - 0.1f);
+	}
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
+	{
+		testSprite->SetAnimation(-1);
+	}
+	//------------------------------------------------------------------------
+	// Sample Sound.
+	//------------------------------------------------------------------------
+	if (App::IsKeyPressed('L'))
+	{
+		App::PlaySound(".\\TestData\\Test.wav", true);
+	}
 
-	pLevel->Update(dtSeconds);
-
-	pClub->Update(dtSeconds);
-	
-	EndFrame();
+	if (App::IsKeyPressed('K'))
+	{
+		App::StopSound(".\\TestData\\Test.wav");
+	}
 }
 
 //------------------------------------------------------------------------
@@ -115,28 +121,42 @@ void Update(const float deltaTime)
 // See App.h 
 //------------------------------------------------------------------------
 void Render()
-{	
-	// this is the closest I can get to the start without modifying the API
-	StartFrame();
+{
+	//------------------------------------------------------------------------
+	// Example Sprite Code....
+	testSprite->Draw();
+	//------------------------------------------------------------------------
 
-	pLevel->Draw();
-	
-	pClub->Draw();
+	//------------------------------------------------------------------------
+	// Example Text.
+	//------------------------------------------------------------------------
+	App::Print(100, 100, "Sample Text");
+	//------------------------------------------------------------------------
+	// Example Line Drawing.
+	//------------------------------------------------------------------------
+	static float a = 0.0f;
+	const float r = 1.0f;
+	float g = 1.0f;
+	float b = 1.0f;
+	a += 0.1f;
+	for (int i = 0; i < 20; i++)
+	{
 
-	std::string text{ "ball x: " + std::to_string(pBall->GetPosition().x)};
-
-	std::string text2{ "ball y: " + std::to_string(pBall->GetPosition().y) };
-
-	App::Print(150, 100, text.c_str());
-	App::Print(150, 150, text2.c_str());
-
+		const float sx = 200 + sinf(a + i * 0.1f) * 60.0f;
+		const float sy = 200 + cosf(a + i * 0.1f) * 60.0f;
+		const float ex = 700 - sinf(a + i * 0.1f) * 60.0f;
+		const float ey = 700 - cosf(a + i * 0.1f) * 60.0f;
+		g = (float)i / 20.0f;
+		b = (float)i / 20.0f;
+		App::DrawLine(sx, sy, ex, ey, r, g, b);
+	}
 }
 //------------------------------------------------------------------------
 // Add your shutdown code here. Called when the APP_QUIT_KEY is pressed.
 // Just before the app exits.
 //------------------------------------------------------------------------
 void Shutdown()
-{	
+{
 	//------------------------------------------------------------------------
 	// Example Sprite Code....
 	delete testSprite;

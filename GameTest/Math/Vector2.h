@@ -1,15 +1,13 @@
 #pragma once
-#include "stdafx.h"
-#include <corecrt_math.h>
 class Vector2
 {
 public:
     Vector2() {};
     Vector2(float nx, float ny) : x(nx), y(ny) {};
-    
+
     void operator=(const Vector2& other) { x = other.x; y = other.y; };
-  //void operator=(const Vector4& other) { x = other.x; y = other.y; z = other.z; w = other.w; };
-    // addition
+    //void operator=(const Vector4& other) { x = other.x; y = other.y; z = other.z; w = other.w; };
+      // addition
     Vector2 operator+(const Vector2& other) const { return Vector2(x + other.x, y + other.y); };
     Vector2 operator+(const float& other) const { return Vector2(x + other, y + other); };
     void operator+=(const Vector2& other) { x += other.x, y += other.y; };

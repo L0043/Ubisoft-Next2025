@@ -24,17 +24,6 @@
     <ClCompile Include="miniaudio\miniaudio.cpp">
       <Filter>API\third_party\miniaudio</Filter>
     </ClCompile>
-    <ClCompile Include="AABB.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Wall.cpp" />
-    <ClCompile Include="Ball.cpp" />
-    <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="Level.cpp" />
-    <ClCompile Include="Goal.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="EventManager.cpp" />
-    <ClCompile Include="SoundWave.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -65,23 +54,11 @@
     <ClInclude Include="miniaudio\miniaudio.h">
       <Filter>API\third_party\miniaudio</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="Vector2.h" />
-    <ClInclude Include="AABB.h" />
-    <ClInclude Include="Vector4.h" />
-    <ClInclude Include="Draw.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Wall.h" />
-    <ClInclude Include="Ball.h" />
-    <ClInclude Include="Mesh.h" />
-    <ClInclude Include="Level.h" />
-    <ClInclude Include="Goal.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="EventManager.h" />
-    <ClInclude Include="EventListener.h" />
-    <ClInclude Include="Events.h" />
-    <ClInclude Include="SoundWave.h" />
-    <ClInclude Include="PowerUp.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Math\Vector2.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector4.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="API">
@@ -95,6 +72,9 @@
     </Filter>
     <Filter Include="API\third_party\stb_image">
       <UniqueIdentifier>{61cfc19b-c57e-4021-b530-bac172fcba86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{64b795c7-f27c-47a1-ba7e-46527a139ae0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -180,52 +180,28 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AABB.h" />
     <ClInclude Include="App\app.h" />
     <ClInclude Include="App\AppSettings.h" />
     <ClInclude Include="App\main.h" />
     <ClInclude Include="App\SimpleController.h" />
     <ClInclude Include="App\SimpleSound.h" />
     <ClInclude Include="App\SimpleSprite.h" />
-    <ClInclude Include="Ball.h" />
-    <ClInclude Include="Draw.h" />
-    <ClInclude Include="EventListener.h" />
-    <ClInclude Include="EventManager.h" />
-    <ClInclude Include="Events.h" />
-    <ClInclude Include="Goal.h" />
-    <ClInclude Include="Level.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Math\Vector2.h" />
+    <ClInclude Include="Math\Vector4.h" />
     <ClInclude Include="miniaudio\miniaudio.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="PowerUp.h" />
-    <ClInclude Include="SoundWave.h" />
     <ClInclude Include="stb_image\stb_image.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Vector4.h" />
-    <ClInclude Include="Vector2.h" />
-    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AABB.cpp" />
     <ClCompile Include="App\app.cpp" />
     <ClCompile Include="App\main.cpp" />
     <ClCompile Include="App\SimpleController.cpp" />
     <ClCompile Include="App\SimpleSound.cpp" />
     <ClCompile Include="App\SimpleSprite.cpp" />
-    <ClCompile Include="Ball.cpp" />
-    <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="GameTest.cpp" />
-    <ClCompile Include="Goal.cpp" />
-    <ClCompile Include="Level.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="miniaudio\miniaudio.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="SoundWave.cpp" />
     <ClCompile Include="stb_image\stb_image.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -233,7 +209,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
