@@ -1,3 +1,24 @@
-﻿  GameTest.vcxproj -> C:\Users\lill0043\Downloads\Ubisoft-Next2025\x64\Debug\GameTest.exe
+﻿  stdafx.cpp
+  SimpleController.cpp
+C:\Users\lill0043\Downloads\Ubisoft-Next2025\GameTest\App\AppSettings.h(64,1): warning C4005: 'PI': macro redefinition
+C:\Users\lill0043\Downloads\Ubisoft-Next2025\GameTest\stdafx.h(13,1): message : see previous definition of 'PI'
+  SimpleSound.cpp
+  SimpleSprite.cpp
+C:\Users\lill0043\Downloads\Ubisoft-Next2025\GameTest\App\AppSettings.h(64,1): warning C4005: 'PI': macro redefinition
+C:\Users\lill0043\Downloads\Ubisoft-Next2025\GameTest\stdafx.h(13,1): message : see previous definition of 'PI'
+  app.cpp
+C:\Users\lill0043\Downloads\Ubisoft-Next2025\GameTest\App\AppSettings.h(64,1): warning C4005: 'PI': macro redefinition
+C:\Users\lill0043\Downloads\Ubisoft-Next2025\GameTest\stdafx.h(13,1): message : see previous definition of 'PI'
+  main.cpp
+C:\Users\lill0043\Downloads\Ubisoft-Next2025\GameTest\App\AppSettings.h(64,1): warning C4005: 'PI': macro redefinition
+C:\Users\lill0043\Downloads\Ubisoft-Next2025\GameTest\stdafx.h(13,1): message : see previous definition of 'PI'
+  GameTest.cpp
+C:\Users\lill0043\Downloads\Ubisoft-Next2025\GameTest\app\AppSettings.h(64,1): warning C4005: 'PI': macro redefinition
+C:\Users\lill0043\Downloads\Ubisoft-Next2025\GameTest\stdafx.h(13,1): message : see previous definition of 'PI'
+  miniaudio.cpp
+  stb_image.cpp
+  Generating Code...
+  LINK : C:\Users\lill0043\Downloads\Ubisoft-Next2025\x64\Debug\GameTest.exe not found or not built by the last incremental link; performing full link
+  GameTest.vcxproj -> C:\Users\lill0043\Downloads\Ubisoft-Next2025\x64\Debug\GameTest.exe
   C:\Users\lill0043\Downloads\Ubisoft-Next2025\\GameTest\glut\bin\x64\freeglut.dll
   1 File(s) copied

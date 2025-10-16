@@ -12,3 +12,6 @@
 
 #define PI 3.14159265359
 // TODO: reference additional headers your program requires here
+#include <corecrt_math.h>
+#include "Math/Vector4.h"
+#include "Math/Vector2.h"

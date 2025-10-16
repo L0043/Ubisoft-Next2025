@@ -186,6 +186,10 @@
     <ClInclude Include="App\SimpleController.h" />
     <ClInclude Include="App\SimpleSound.h" />
     <ClInclude Include="App\SimpleSprite.h" />
+    <ClInclude Include="Components\Collider.h" />
+    <ClInclude Include="Components\ComponentBase.h" />
+    <ClInclude Include="Components\Mesh.h" />
+    <ClInclude Include="Components\Transform.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Math\Vector2.h" />
     <ClInclude Include="Math\Vector4.h" />

@@ -61,6 +61,10 @@
     <ClInclude Include="Math\Vector4.h">
       <Filter>Math</Filter>
     </ClInclude>
+    <ClInclude Include="Components\Transform.h" />
+    <ClInclude Include="Components\ComponentBase.h" />
+    <ClInclude Include="Components\Mesh.h" />
+    <ClInclude Include="Components\Collider.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="API">
